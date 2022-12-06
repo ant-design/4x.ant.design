@@ -3463,6 +3463,7 @@ a.ant-btn-sm {
   padding-left: 16px;
 }
 .ant-card-meta-detail {
+  flex: 1;
   overflow: hidden;
 }
 .ant-card-meta-detail > div:not(:last-child) {
@@ -16088,6 +16089,7 @@ textarea.ant-mentions {
 .ant-menu-item-disabled a,
 .ant-menu-submenu-disabled a {
   color: rgba(255, 255, 255, 0.3) !important;
+  pointer-events: none;
 }
 .ant-menu-item-disabled > .ant-menu-submenu-title,
 .ant-menu-submenu-disabled > .ant-menu-submenu-title {
@@ -17955,7 +17957,6 @@ textarea.ant-pagination-options-quick-jumper input {
 }
 .ant-popover-message {
   display: flex;
-  align-items: center;
   padding: 4px 0 12px;
   color: rgba(255, 255, 255, 0.85);
   font-size: 14px;
@@ -20893,7 +20894,7 @@ span.ant-radio + * {
 .ant-steps-vertical > .ant-steps-item > .ant-steps-item-container > .ant-steps-item-tail {
   position: absolute;
   top: 0;
-  left: 16px;
+  left: 15px;
   width: 1px;
   height: 100%;
   padding: 38px 0 6px;
@@ -20911,7 +20912,7 @@ span.ant-radio + * {
 .ant-steps-vertical.ant-steps-small .ant-steps-item-container .ant-steps-item-tail {
   position: absolute;
   top: 0;
-  left: 12px;
+  left: 11px;
   padding: 30px 0 6px;
 }
 .ant-steps-vertical.ant-steps-small .ant-steps-item-container .ant-steps-item-title {
@@ -21282,6 +21283,15 @@ span.ant-radio + * {
   right: -2px;
   left: auto;
 }
+.ant-steps-rtl.ant-steps-with-progress.ant-steps-vertical > .ant-steps-item {
+  padding-right: 4px;
+}
+.ant-steps-rtl.ant-steps-with-progress.ant-steps-vertical > .ant-steps-item > .ant-steps-item-container > .ant-steps-item-tail {
+  right: 19px;
+}
+.ant-steps-rtl.ant-steps-with-progress.ant-steps-small.ant-steps-vertical > .ant-steps-item > .ant-steps-item-container > .ant-steps-item-tail {
+  right: 15px;
+}
 .ant-steps-rtl.ant-steps-with-progress.ant-steps-horizontal.ant-steps-label-horizontal .ant-steps-item:first-child {
   padding-right: 4px;
   padding-left: 0;
@@ -21292,11 +21302,19 @@ span.ant-radio + * {
 .ant-steps-with-progress .ant-steps-item {
   padding-top: 4px;
 }
-.ant-steps-with-progress .ant-steps-item .ant-steps-item-tail {
-  top: 4px !important;
+.ant-steps-with-progress .ant-steps-item > .ant-steps-item-container > .ant-steps-item-tail {
+  top: 4px;
+  left: 19px;
 }
-.ant-steps-with-progress.ant-steps-horizontal .ant-steps-item:first-child {
+.ant-steps-with-progress.ant-steps-horizontal .ant-steps-item:first-child,
+.ant-steps-with-progress.ant-steps-small.ant-steps-horizontal .ant-steps-item:first-child {
   padding-bottom: 4px;
+  padding-left: 4px;
+}
+.ant-steps-with-progress.ant-steps-small > .ant-steps-item > .ant-steps-item-container > .ant-steps-item-tail {
+  left: 15px;
+}
+.ant-steps-with-progress.ant-steps-vertical .ant-steps-item {
   padding-left: 4px;
 }
 .ant-steps-with-progress.ant-steps-label-vertical .ant-steps-item .ant-steps-item-tail {
