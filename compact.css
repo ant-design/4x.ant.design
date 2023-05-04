@@ -17606,6 +17606,7 @@ textarea.ant-pagination-options-quick-jumper input {
   top: 0;
   left: 0;
   z-index: 1030;
+  max-width: 100%;
   font-weight: normal;
   white-space: normal;
   text-align: left;
@@ -17670,6 +17671,9 @@ textarea.ant-pagination-options-quick-jumper input {
   border-bottom: 1px solid #f0f0f0;
 }
 .ant-popover-inner-content {
+  width: -moz-max-content;
+  width: max-content;
+  max-width: 100%;
   padding: 8px 12px;
   color: rgba(0, 0, 0, 0.85);
 }
@@ -18776,7 +18780,7 @@ span.ant-radio + * {
 .ant-select-single .ant-select-selector .ant-select-selection-placeholder {
   padding: 0;
   line-height: 26px;
-  transition: all 0.3s;
+  transition: all 0.3s, visibility 0s;
 }
 .ant-select-single .ant-select-selector .ant-select-selection-item {
   position: relative;
