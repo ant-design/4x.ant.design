@@ -5021,7 +5021,6 @@ textarea.ant-picker-input > input {
 .ant-picker-range-arrow {
   position: absolute;
   z-index: 1;
-  display: none;
   width: 11.3137085px;
   height: 11.3137085px;
   margin-left: 16.5px;
@@ -12978,6 +12977,7 @@ textarea.ant-input-number-affix-wrapper {
   padding: 0;
 }
 .ant-input-number-affix-wrapper::before {
+  display: inline-block;
   width: 0;
   visibility: hidden;
   content: '\a0';
@@ -13375,9 +13375,8 @@ textarea.ant-input-number {
   vertical-align: top;
   border-radius: 0;
 }
-.ant-input-number-group.ant-input-number-group-compact > .ant-input-number-affix-wrapper {
-  display: inline-flex;
-}
+.ant-input-number-group.ant-input-number-group-compact > .ant-input-number-affix-wrapper,
+.ant-input-number-group.ant-input-number-group-compact > .ant-input-number-number-affix-wrapper,
 .ant-input-number-group.ant-input-number-group-compact > .ant-picker-range {
   display: inline-flex;
 }
@@ -13909,6 +13908,7 @@ textarea.ant-input-affix-wrapper {
   padding: 0;
 }
 .ant-input-affix-wrapper::before {
+  display: inline-block;
   width: 0;
   visibility: hidden;
   content: '\a0';
@@ -14353,9 +14353,8 @@ textarea.ant-input {
   vertical-align: top;
   border-radius: 0;
 }
-.ant-input-group.ant-input-group-compact > .ant-input-affix-wrapper {
-  display: inline-flex;
-}
+.ant-input-group.ant-input-group-compact > .ant-input-affix-wrapper,
+.ant-input-group.ant-input-group-compact > .ant-input-number-affix-wrapper,
 .ant-input-group.ant-input-group-compact > .ant-picker-range {
   display: inline-flex;
 }
@@ -17890,7 +17889,7 @@ textarea.ant-pagination-options-quick-jumper input {
   top: 0;
   left: 0;
   z-index: 1030;
-  max-width: 100%;
+  max-width: 100vw;
   font-weight: normal;
   white-space: normal;
   text-align: left;
@@ -19195,6 +19194,7 @@ span.ant-radio + * {
   width: 0;
   margin: 2px 0;
   line-height: 24px;
+  visibility: hidden;
   content: '\a0';
 }
 .ant-select-multiple.ant-select-show-arrow .ant-select-selector,
@@ -20329,6 +20329,7 @@ span.ant-radio + * {
   position: absolute;
   display: none;
   color: #177ddc;
+  font-size: 0;
   text-align: center;
   vertical-align: middle;
   opacity: 0;
@@ -20363,6 +20364,7 @@ span.ant-radio + * {
   top: 50%;
   width: 100%;
   padding-top: 5px;
+  font-size: 14px;
   text-shadow: 0 1px 2px #141414;
 }
 .ant-spin-nested-loading > div > .ant-spin.ant-spin-show-text .ant-spin-dot {
