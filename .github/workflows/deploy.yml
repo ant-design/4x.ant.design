@@ -1,0 +1,56 @@
+name: Deploy website
+
+on:
+  workflow_dispatch:
+
+permissions:
+  contents: write
+  pages: write
+
+concurrency:
+  group: deploy-v4-site
+  cancel-in-progress: false
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@11d5960a326750d5838078e36cf38b85af677262
+
+      - uses: actions/checkout@11d5960a326750d5838078e36cf38b85af677262
+        with:
+          repository: ant-design/ant-design
+          ref: 4.x-stable
+          path: source
+          persist-credentials: false
+
+      - name: Record source revision
+        id: source-revision
+        working-directory: source
+        run: echo "sha=$(git rev-parse HEAD)" >> "$GITHUB_OUTPUT"
+
+      - name: Install dependencies
+        working-directory: source
+        run: |
+          npm install --package-lock-only --ignore-scripts
+          npm ci
+
+      - uses: actions/setup-node@3235b876344d2a9aa001b8d1453c930bba69e610
+        with:
+          node-version: 16
+
+      - name: Build website
+        working-directory: source
+        run: npm run predeploy
+
+      - name: Publish website
+        uses: peaceiris/actions-gh-pages@373f7f263a76c20808c831209c920827a82a2847
+        with:
+          github_token: ${{ secrets.GITHUB_TOKEN }}
+          publish_dir: source/_site
+          full_commit_message: 'deploy: ant-design/ant-design@${{ steps.source-revision.outputs.sha }}'
+
+      - name: Build GitHub Pages
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: gh api --method POST "repos/${GITHUB_REPOSITORY}/pages/builds"
